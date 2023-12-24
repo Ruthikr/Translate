@@ -138,24 +138,18 @@ response = requests.post(url, data=payload, headers=headers)
 got=response.json()
 b=st.button("translate")
 answer=dict(got)
-answer=answer["data"]["translatedText"]
+final=answer["data"]["translatedText"]
 if b:
-    st.title(answer)
+    st.title(final)
     input_df=pd.read_csv("input_df.csv")
     input_update=pd.DataFrame({"Language": [in_lang], "text": [text],})
     df=pd.concat([input_df,input_update], ignore_index=True)
     df.to_csv("input_df.csv", index=False)
 
     output_df=pd.read_csv("output_df.csv")
-    output_update=pd.DataFrame({"Language": [lang], "text": [answer],})
+    output_update=pd.DataFrame({"Language": [lang], "text": [final],})
     new_df=pd.concat([output_df,output_update], ignore_index=True)
     new_df.to_csv("output_df.csv", index=False)
-else:
-    pass
-d=st.button("data")
-if d:
-    st.dataframe(df)
-    st.dataframe(new_df)
     
    
         
