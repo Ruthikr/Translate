@@ -147,7 +147,7 @@ if b:
     df.to_csv("input_df.csv", index=False)
 
     output_df=pd.read_csv("output_df.csv")
-    output_update=pd.DataFrame({"Language": [lang], "text": [answer["data"]["translatedText"]],})
+    output_update=pd.DataFrame({"Language": [lang], "text": [answer],})
     new_df=pd.concat([output_df,output_update], ignore_index=True)
     new_df.to_csv("output_df.csv", index=False)
     d=st.button("data")
