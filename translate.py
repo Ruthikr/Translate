@@ -154,6 +154,6 @@ if b:
 data=st.button("data")
 if data:
     st.write("input data")
-    st.dataframe(pd.DataFrame(input_df))
+    st.dataframe(pd.DataFrame(df))
         
 
