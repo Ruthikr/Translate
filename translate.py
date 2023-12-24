@@ -151,6 +151,6 @@ if b:
     new_df.to_csv("output_df.csv", index=False)
     st.write(df)
     st.write(new_df)
-    st.dataframe(df.style.highlight_max(axis=0))
+    st.dataframe(df.style.highlight_max(axis=0),height=750)
         
 
