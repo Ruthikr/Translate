@@ -141,16 +141,15 @@ answer=dict(got)
 if b:
     st.title(answer["data"]["translatedText"])
     input_df=pd.read_csv("input_df.csv")
-    new_row = {"Language":in_lang, "text":text}
-    input_df=input_df.append(new_row,ignore_index=True)
-    input_df=input_df[["Language","text"]]
-    input_df.to_csv("input_df.csv")
-      
+    input_update=pd.DataFrame({"Language": [in_lang], "text": [text],})
+    df=pd.concat([input_df,input_update], ignore_index=True)
+    df.to_csv("input_df.csv", index=False)
 
     output_df=pd.read_csv("output_df.csv")
-    new_row = {"Language":lang, "text":answer["data"]["translatedText"]}
-    output_df=output_df.append(new_row,ignore_index=True)
-    output_df=output_df[["Language","text"]]
-    output_df.to_csv("output_df.csv")
+    output_update=pd.DataFrame({"Language": [lang], "text": [answer["data"]["translatedText"]],})
+    new_df=pd.concat([output_df,output_update], ignore_index=True)
+    new_df.to_csv("output_df.csv", index=False)
+    st.write(df)
+    st.write(new_df)
         
 
