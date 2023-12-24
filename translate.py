@@ -134,28 +134,24 @@ headers = {
 "X-RapidAPI-Key": "e263672799msh5fee87fc8b00bd9p19807ejsn9f98bec00a24",
 "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
 }
-try:
-    response = requests.post(url, data=payload, headers=headers)
-    got=response.json()
-    b=st.button("translate")
-    answer=dict(got)
-    if b:
-        st.title(answer["data"]["translatedText"])
-        input_df=pd.read_csv("input_df.csv")
-        new_row = {"Language":in_lang, "text":text}
-        input_df=input_df.append(new_row,ignore_index=True)
-        input_df=input_df[["Language","text"]]
-        input_df.to_csv("input_df.csv")
+response = requests.post(url, data=payload, headers=headers)
+got=response.json()
+b=st.button("translate")
+answer=dict(got)
+if b:
+    st.title(answer["data"]["translatedText"])
+    input_df=pd.read_csv("input_df.csv")
+    new_row = {"Language":in_lang, "text":text}
+    input_df=input_df.append(new_row,ignore_index=True)
+    input_df=input_df[["Language","text"]]
+    input_df.to_csv("input_df.csv")
       
 
-
-        output_df=pd.read_csv("output_df.csv")
-        new_row = {"Language":lang, "text":answer["data"]["translatedText"]}
-        output_df=output_df.append(new_row,ignore_index=True)
-        output_df=output_df[["Language","text"]]
-        output_df.to_csv("output_df.csv")
-        st.write(output_df)
+    output_df=pd.read_csv("output_df.csv")
+    new_row = {"Language":lang, "text":answer["data"]["translatedText"]}
+    output_df=output_df.append(new_row,ignore_index=True)
+    output_df=output_df[["Language","text"]]
+    output_df.to_csv("output_df.csv")
+    st.write(output_df)
         
-except:
-    st.write("")
-st.write(input_df)
+
