@@ -146,7 +146,7 @@ try:
         input_df=input_df.append(new_row,ignore_index=True)
         input_df=input_df[["Language","text"]]
         input_df.to_csv("input_df.csv")
-        st.write(input_df)
+      
 
 
         output_df=pd.read_csv("output_df.csv")
