@@ -151,5 +151,9 @@ if b:
     new_df.to_csv("output_df.csv", index=False)
     st.write(df)
     st.write(new_df)
+ data=st.button("data")
+ if data:
+     st.write("input data")
+     st.dataframe(input_df)
         
 
