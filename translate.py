@@ -150,10 +150,13 @@ if b:
     output_update=pd.DataFrame({"Language": [lang], "text": [answer],})
     new_df=pd.concat([output_df,output_update], ignore_index=True)
     new_df.to_csv("output_df.csv", index=False)
-    d=st.button("data")
-    if d:
-        st.dataframe(df)
-        st.dataframe(new_df)
+else:
+    pass
+d=st.button("data")
+if d:
+    st.dataframe(df)
+    st.dataframe(new_df)
+    
    
         
 
