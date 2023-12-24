@@ -158,3 +158,4 @@ try:
         
 except:
     st.write("")
+st.write(input_df)
