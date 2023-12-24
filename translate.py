@@ -149,8 +149,10 @@ if b:
     output_update=pd.DataFrame({"Language": [lang], "text": [answer["data"]["translatedText"]],})
     new_df=pd.concat([output_df,output_update], ignore_index=True)
     new_df.to_csv("output_df.csv", index=False)
-    st.write(df)
-    st.write(new_df)
-    st.dataframe(df.style.highlight_max(axis=0),height=750)
+d=st.button("data")
+if d:
+    st.dataframe(df)
+    st.dataframe(new_df)
+   
         
 
