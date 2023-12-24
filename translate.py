@@ -150,7 +150,7 @@ try:
         output_update=pd.DataFrame({"Language": [lang], "text": [answer["data"]["translatedText"]],})
         new_df=pd.concat([output_df,output_update], ignore_index=True)
         new_df.to_csv("output_df.csv", index=False)
-        st.write(df)
-        st.write(new_df)
+        #st.write(df)
+        #st.write(new_df)
 except:
     st.write("")
