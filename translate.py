@@ -137,6 +137,7 @@ headers = {
 response = requests.post(url, data=payload, headers=headers)
 got=response.json()
 b=st.button("translate")
+d=st.button("data")
 answer=dict(got)
 if b:
     st.title(answer["data"]["translatedText"])
