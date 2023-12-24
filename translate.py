@@ -139,6 +139,7 @@ try:
     got=response.json()
     b=st.button("translate")
     answer=dict(got)
+    d=st.button("table")
     if b:
         st.title(answer["data"]["translatedText"])
         input_df=pd.read_csv("input_df.csv")
@@ -150,7 +151,7 @@ try:
         output_update=pd.DataFrame({"Language": [lang], "text": [answer["data"]["translatedText"]],})
         new_df=pd.concat([output_df,output_update], ignore_index=True)
         new_df.to_csv("output_df.csv", index=False)
-        d=st.button("table")
+        
         if d:
             st.write(df)
             st.write(new_df)
