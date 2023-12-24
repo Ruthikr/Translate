@@ -138,7 +138,7 @@ response = requests.post(url, data=payload, headers=headers)
 got=response.json()
 b=st.button("translate")
 answer=dict(got)
-answer=answer["data"]["translatedText"])
+answer=answer["data"]["translatedText"]
 if b:
     st.title(answer)
     input_df=pd.read_csv("input_df.csv")
