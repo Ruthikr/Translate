@@ -152,6 +152,5 @@ if b:
     output_df=output_df.append(new_row,ignore_index=True)
     output_df=output_df[["Language","text"]]
     output_df.to_csv("output_df.csv")
-    st.write(output_df)
         
 
