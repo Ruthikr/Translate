@@ -155,7 +155,3 @@ try:
         
 except:
     st.write("")
-d=st.button("table")
-if d:
-    st.write(df)
-    st.write(new_df)
